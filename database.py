@@ -30,16 +30,17 @@ def load_job_from_db(id):
         else:
             return dict(rows[0])
 
-def add_job_to_db():
+def add_job_to_db(data):
     with engine.connect() as conn:
         query = text("INSERT INTO data (title, location, salary, currency, responsibilities, requirements) VALUES (:title, :location, :salary, :currency, :responsibilities, :requirements)")
         conn.execute(query,
-                    title='Web Developer', 
-                    location='Remote', 
-                    salary='600000', 
-                    currency='INR', 
-                    responsibilities='Lorem ipsum dolor', 
-                    requirements='HTML,CSS,JavaScript')
+                    title=data['title'], 
+                    location=data['location'], 
+                    salary=data['salary'], 
+                    currency=data['currency'], 
+                    responsibilities=data['responsibilities'], 
+                    requirements=data['requirements']
+                    )
         # return load_jobs_from_db()
 
 #https://note.nkmk.me/en/python-long-string/

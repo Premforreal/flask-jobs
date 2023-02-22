@@ -7,13 +7,13 @@ def home():
     arr = load_jobs_from_db()
     return render_template('home.html',jobs=arr)
  
-#  https://stackoverflow.com/questions/21689364/method-not-allowed-flask-error-405
-@app.route('/jobs/add',methods=['GET','POST'])
+#https://stackoverflow.com/questions/21689364/method-not-allowed-flask-error-405
+#https://stackoverflow.com/questions/9871705/to-display-this-page-firefox-must-send-information-that-will-repeat-any-action
+@app.route('/',methods=['POST'])
 def addJob():
-    add_job_to_db()
-    # arr=add_job_to_db()
-    # return jsonify(arr)
-    return ("<p>Added</p>")
+    data  = request.form
+    add_job_to_db(data)
+    return(redirect('/'))
 
 @app.route('/jobs/<id>')
 def showJob(id):
