@@ -43,6 +43,11 @@ def add_job_to_db(data):
                     )
         # return load_jobs_from_db()
 
+def delete_job_from_db(id):
+    with engine.connect() as conn:
+        query = text("DELETE FROM data WHERE id=:id")
+        conn.execute(query,id=id)
+
 #https://note.nkmk.me/en/python-long-string/
 def add_application_to_db(job_id,data):
     with engine.connect() as conn:

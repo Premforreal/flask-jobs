@@ -1,5 +1,5 @@
 from flask import Flask,render_template,jsonify,request,url_for,redirect
-from database import load_jobs_from_db,add_job_to_db,load_job_from_db,add_application_to_db
+from database import load_jobs_from_db,add_job_to_db,load_job_from_db,add_application_to_db,delete_job_from_db
 app = Flask(__name__) #name: how the script is invoked
 
 @app.route('/')
@@ -13,6 +13,12 @@ def home():
 def addJob():
     data  = request.form
     add_job_to_db(data)
+    return(redirect('/'))
+
+#https://stackoverflow.com/questions/5162960/should-put-and-delete-be-used-in-forms
+@app.route('/jobs/delete/<id>')
+def deleteJob(id):
+    delete_job_from_db(id)
     return(redirect('/'))
 
 @app.route('/jobs/<id>')
