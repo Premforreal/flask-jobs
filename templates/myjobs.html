@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My jobs</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Job id</th>
+            <th>first name</th>
+            <th>last name</th>
+            <th>Email</th>
+            <th>Education</th>
+            <th>Experience</th>
+            <th>Resume</th>
+            <th>Linkedin</th>
+        </tr>
+    {% for i in jobs %}
+    <tr>
+        <td>{{i['job_id']}}</td>
+        <td>{{i['first_name']}}</td>
+        <td>{{i['last_name']}}</td>
+        <td>{{i['email']}}</td>
+        <td>{{i['education']}}</td>
+        <td>{{i['work_exp']}}</td>
+        <td>{{i['linkedin_url']}}</td>
+        <td>{{i['resume_url']}}</td>
+        <td>
+          <a href="/jobs/{{i['job_id']}}" type="button">View JD</a>
+        </td>
+      </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

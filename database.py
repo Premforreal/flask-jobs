@@ -61,3 +61,13 @@ def add_application_to_db(job_id,data):
                 education = data['education'],
                 work_exp = data['work'],
                 resume_url = data['resume'],)
+
+def get_myjobs_from_db():
+    with engine.connect() as conn:
+        query = text("select * from applications")
+        result = conn.execute(query)
+        resAll= result.all()
+        ret = []
+        for i in resAll:
+            ret.append(dict(i))
+        return ret
