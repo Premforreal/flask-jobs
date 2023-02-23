@@ -1,19 +1,14 @@
-  <tr>
-    <td>{{i['id']}}</td>
-    <td>{{i['title']}}</td>
-    <td>{{i['location']}}</td>
-    <td>{{i['currency']}}</td>
-    <td>{{i['salary']}}</td>
-    <td>{{i['responsibilities']}}</td>
-    <td>{{i['requirements']}}</td>
-    <td>
-      <a href="/jobs/{{i['id']}}" type="button">
-        Apply
-      </a>
-    </td>
-    <td>
-      <a href="/jobs/delete/{{i['id']}}" type="button">
-        Delete
-      </a>
-    </td>
-  </tr>
+<div class="job-item">
+    <h2>{{i['title']}}</h2>
+    <h4>Salary:</h4><p>{{i['currency']}} {{i['salary']}}</p> 
+    <h4>Location:</h4><p>{{i['location']}}</p>
+    <h4>Roles and Responsibilities:</h4> <p>{{i['responsibilities']}}</p>
+    <h4>requirements:</h4><p>{{i['requirements']}}</p>
+    <button>
+      <a href="/jobs/{{i['id']}}" type="button">Apply</a>
+    </button>
+    <button>
+      <a href="/jobs/delete/{{i['id']}}" type="button">Delete</a>
+    </button>
+  </div>
+  <hr>

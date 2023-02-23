@@ -5,39 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flask</title>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/home.css') }}">
 </head>
 <body>
-    <h1>Flask App</h1>
-    <p>
-        Lorem ipsum dolor 
-        sit amet consectetur 
-        adipisicing elit.
-         Sapiente, nostrum.
-    </p>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Location</th>
-            <th>currency</th>
-            <th>salary</th>
-            <th>responsibilities</th>
-            <th>requirements</th>
-        </tr>
+    <h1>Flask Jobs</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Sapiente, nostrum.</p>
+    <hr>
         {% for i in jobs %}
             {%include 'items.html' %}
         {% endfor %}
-    </table>
+    <a href="/jobs/myjobs" type="button">View my applications</a>
     <form action="" method="post">
+        <h2>Add new job</h2>
         <input name="title" placeholder="Title">
         <input name="location" placeholder="Location">
         <input name="currency" type="text" placeholder="currency">
         <input name="salary" type="number" placeholder="salary">
-        <textarea name="responsibilities" placeholder="responsibilities"></textarea>
-        <textarea name="requirements" placeholder="requirements"></textarea>
+        <textarea name="responsibilities" placeholder="responsibilities" rows="4" cols="50"></textarea>
+        <textarea name="requirements" placeholder="requirements" rows="4" cols="50"></textarea>
         <input type="submit">
     </form>
-
-    <a href="/jobs/myjobs" type="button">View all</a>
 </body>
 </html>
